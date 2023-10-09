@@ -95,12 +95,63 @@ while (true)
     {
         Console.WriteLine(choice);
 
-        switch (choice)
+        ChoixMenu choixMenu = (ChoixMenu)choice;
+
+        switch (choixMenu)
         {
+            case ChoixMenu.NouvellePartie:
+                {
+                    DemarrerNouvellePartie();
+                }; break;
+
+            case ChoixMenu.ChargerPartie:
+                {
+                    ChargerPartie();
+                }
+                break;
+
+            case ChoixMenu.Options:
+                {
+                    AfficherOptions();
+                }
+                break;
+
             default:
+                {
+                }
                 break;
         }
     }
+}
+#endregion
+
+#region Gestion des choix de l'utilisateur
+void DemarrerNouvellePartie()
+{
+    Console.WriteLine("C'est partie !");
+}
+
+void ChargerPartie()
+{
+    Console.WriteLine("Choisissez la partie à jouer");
+}
+
+void AfficherOptions()
+{
+    Dictionary<string, string> lesDeveloppeurs = new()
+    {
+        { "Melvin", "Développeur C#" },
+        { "Jonathan", "Développeur C#" },
+        { "Maxime", "Développeur C#" },
+        { "Evan", "Formateur C#" }
+    };
+
+    Console.ForegroundColor = ConsoleColor.DarkGreen;
+    foreach (var item in lesDeveloppeurs)
+    {
+        Console.WriteLine("{0} => {1}", item.Key, item.Value);
+    }
+    Console.ForegroundColor = ConsoleColor.White;
 }
 #endregion
 

@@ -30,10 +30,9 @@ public class Menu
         // TODO: 09102023, à finir plus tard
     }
 
+    // V1public bool GetChoice(string[] options, out int choice) // le out force l'affectation dans cette méthode
     public bool GetChoice(string[] options, out int choice) // le out force l'affectation dans cette méthode
     {
-        //choice = 2;
-
         string saisieChoix = Console.ReadLine();
 
         if (int.TryParse(saisieChoix, out choice))

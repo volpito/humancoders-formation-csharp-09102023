@@ -6,8 +6,8 @@
 internal enum ChoixMenu
 {
     None = -1,
-    NouvellePartie = 1,
+    NouvellePartie = 0,
     ChargerPartie,
-    Options = 3,
+    Options = 2,
     Quitter = -100
 }
