@@ -22,39 +22,64 @@ Console.WriteLine("{0} - {1}", title, DateTime.Now);
 Console.ForegroundColor = ConsoleColor.White;
 
 #region Menu principal du jeu
-while (true)
+int choice = 0;
+
+string[] menu = { "Nouvelle partie", "Charger une partie", "Options", "Quitter" };
+
+void DisplayMenu(string[] options)
 {
-    var itemList = new List<string>() { "1.Nouvelle Partie", "2.Continuer", "3.Options", "4.Quitter" };
-    for (int i = 0; i < itemList.Count(); i++)
+
+    Console.ForegroundColor = ConsoleColor.DarkYellow;
+    for (int i = 0; i < options.Length; i++)
     {
-        Console.ForegroundColor = (ConsoleColor)i + 1;
-        Console.WriteLine(itemList[i].PadLeft(itemList[i].Length + 2, '='));
+        Console.WriteLine("{0} {1} {2}", "==", i, options[i]);
     }
     Console.ForegroundColor = ConsoleColor.White;
+}
 
-    Console.WriteLine("What option are you choosing ?");
+bool GetChoice(string[] options)
+{
+    string saisieChoix = Console.ReadLine();
 
-    string maChaine = "1";
-    int valeur = int.Parse(maChaine);
-
-    int.TryParse(Console.ReadLine(), out int chosenOpt);
-
-    chosenOpt = chosenOpt - 1;
-
-    Console.WriteLine("You chose {0}", itemList[chosenOpt]);
-
-    if (chosenOpt + 1 == 4)
+    if (int.TryParse(saisieChoix, out int choice))
     {
-        Environment.Exit(0);
+        if (choice >= 0 && choice < options.Length)
+        {
+            Console.WriteLine("Vous avez choisi l'option: {0}", options[choice]);
+            if (choice == options.Length - 1)
+            {
+                System.Environment.Exit(1);
+            }
+
+            return true;
+        }
+        else
+        {
+            Console.WriteLine("L'option doit être comprise entre 0 et {0}", options.Length - 1);
+            return false;
+        }
     }
-    else
+    try
     {
-        Console.WriteLine("Not available yet :'(");
+        choice = Convert.ToInt32(Console.ReadLine());
     }
+    catch (Exception e)
+    {
+        Console.WriteLine("Entrez un nombre, recommencez!");
+        return false;
+    }
+
+    return false;
+}
+
+while (true)
+{
+    DisplayMenu(menu);
+    GetChoice(menu);
 }
 #endregion
 
-//#region Melvin
+// #region Melvin
 
 //int egalGameTitle = title.Count(c => c == '=');
 //int spaceGameTitle = title.Count(c => c == ' ');
@@ -105,3 +130,4 @@ while (true)
 /////
 
 //#endregion
+
