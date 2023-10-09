@@ -1,4 +1,6 @@
-﻿Console.ForegroundColor = ConsoleColor.DarkYellow;
+﻿using SdA.Game.Consoles.UI;
+
+Console.ForegroundColor = ConsoleColor.DarkYellow;
 
 // string uneStringJusteCommeCa = null;
 
@@ -22,60 +24,83 @@ Console.WriteLine("{0} - {1}", title, DateTime.Now);
 Console.ForegroundColor = ConsoleColor.White;
 
 #region Menu principal du jeu
-int choice = 0;
+// int choice = 0;
 
 string[] menu = { "Nouvelle partie", "Charger une partie", "Options", "Quitter" };
 
-void DisplayMenu(string[] options)
-{
+#region 2. Etape avant classes
+//void DisplayMenu(string[] options)
+//{
 
-    Console.ForegroundColor = ConsoleColor.DarkYellow;
-    for (int i = 0; i < options.Length; i++)
-    {
-        Console.WriteLine("{0} {1} {2}", "==", i, options[i]);
-    }
-    Console.ForegroundColor = ConsoleColor.White;
-}
+//    Console.ForegroundColor = ConsoleColor.DarkYellow;
+//    for (int i = 0; i < options.Length; i++)
+//    {
+//        Console.WriteLine("{0} {1} {2}", "==", i, options[i]);
+//    }
+//    Console.ForegroundColor = ConsoleColor.White;
+//}
 
-bool GetChoice(string[] options)
-{
-    string saisieChoix = Console.ReadLine();
+////void DisplayMenu()
+////{
 
-    if (int.TryParse(saisieChoix, out int choice))
-    {
-        if (choice >= 0 && choice < options.Length)
-        {
-            Console.WriteLine("Vous avez choisi l'option: {0}", options[choice]);
-            if (choice == options.Length - 1)
-            {
-                System.Environment.Exit(1);
-            }
+////}
 
-            return true;
-        }
-        else
-        {
-            Console.WriteLine("L'option doit être comprise entre 0 et {0}", options.Length - 1);
-            return false;
-        }
-    }
-    try
-    {
-        choice = Convert.ToInt32(Console.ReadLine());
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine("Entrez un nombre, recommencez!");
-        return false;
-    }
+//bool GetChoice(string[] options, out int choice) // le out force l'affectation dans cette méthode
+//{
+//    //choice = 2;
 
-    return false;
-}
+//    string saisieChoix = Console.ReadLine();
+
+//    if (int.TryParse(saisieChoix, out choice))
+//    {
+//        if (choice >= 0 && choice < options.Length)
+//        {
+//            Console.WriteLine("Vous avez choisi l'option: {0}", options[choice]);
+//            if (choice == options.Length - 1)
+//            {
+//                System.Environment.Exit(1);
+//            }
+
+//            return true;
+//        }
+//        else
+//        {
+//            Console.WriteLine("L'option doit être comprise entre 0 et {0}", options.Length - 1);
+//            return false;
+//        }
+//    }
+//    try
+//    {
+//        choice = Convert.ToInt32(Console.ReadLine());
+//    }
+//    catch (Exception e)
+//    {
+//        Console.WriteLine("Entrez un nombre, recommencez!");
+//        return false;
+//    }
+
+//    return false;
+//}
+#endregion
+
+Menu myMenu = new();
+var myMenu2 = new Menu();
 
 while (true)
 {
-    DisplayMenu(menu);
-    GetChoice(menu);
+    int choice = 0;
+
+    myMenu.Display(menu);
+    if (myMenu.GetChoice(menu, out choice))
+    {
+        Console.WriteLine(choice);
+
+        switch (choice)
+        {
+            default:
+                break;
+        }
+    }
 }
 #endregion
 
