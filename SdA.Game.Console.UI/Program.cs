@@ -21,6 +21,39 @@ Console.WriteLine("{0} - {1}", title, DateTime.Now);
 //Console.WriteLine("=====      SDA - un jeu Seigneur des anneaux     =======");
 Console.ForegroundColor = ConsoleColor.White;
 
+#region Menu principal du jeu
+while (true)
+{
+    var itemList = new List<string>() { "1.Nouvelle Partie", "2.Continuer", "3.Options", "4.Quitter" };
+    for (int i = 0; i < itemList.Count(); i++)
+    {
+        Console.ForegroundColor = (ConsoleColor)i + 1;
+        Console.WriteLine(itemList[i].PadLeft(itemList[i].Length + 2, '='));
+    }
+    Console.ForegroundColor = ConsoleColor.White;
+
+    Console.WriteLine("What option are you choosing ?");
+
+    string maChaine = "1";
+    int valeur = int.Parse(maChaine);
+
+    int.TryParse(Console.ReadLine(), out int chosenOpt);
+
+    chosenOpt = chosenOpt - 1;
+
+    Console.WriteLine("You chose {0}", itemList[chosenOpt]);
+
+    if (chosenOpt + 1 == 4)
+    {
+        Environment.Exit(0);
+    }
+    else
+    {
+        Console.WriteLine("Not available yet :'(");
+    }
+}
+#endregion
+
 //#region Melvin
 
 //int egalGameTitle = title.Count(c => c == '=');
@@ -70,40 +103,5 @@ Console.ForegroundColor = ConsoleColor.White;
 
 //#region maxime
 /////
-//Console.WriteLine("Hello there");
-//Console.WriteLine("How many '=' would you like to input ?");
-//var equalSign = Console.ReadLine();
-//Int32.TryParse(equalSign, out int eq);
-//Console.WriteLine("Also, how many white spaces would you like to input ?");
 
-//var space = Console.ReadLine();
-//Int32.TryParse(space, out int sp);
-
-//Console.WriteLine("Cool, let's try it :");
-
-//Console.ForegroundColor = ConsoleColor.DarkYellow;
-//if (eq != 0 && sp != 0)
-//{
-//    for (int i = 0; i <= eq; i++)
-//    {
-//        Console.Write("=");
-//    }
-//    for (int i = 0; i <= sp; i++)
-//    {
-//        Console.Write(" ");
-//    }
-//    Console.Write("SDA - un jeu Seigneur des Anneaux");
-//    for (int i = 0; i <= sp; i++)
-//    {
-//        Console.Write(" ");
-//    }
-//    for (int i = 0; i <= eq; i++)
-//    {
-//        Console.Write("=");
-//    }
-
-//    Console.ForegroundColor = ConsoleColor.White;
-//}
-//else
-//    Console.WriteLine("Please try again with numbers smartass");
 //#endregion
