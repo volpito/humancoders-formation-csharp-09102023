@@ -1,4 +1,9 @@
 ﻿using SdA.Game.Consoles.UI;
+using System.Globalization;
+
+Console.WriteLine("{0}", System.Threading.Thread.CurrentThread.CurrentCulture.Name);
+
+//System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
 
 Console.ForegroundColor = ConsoleColor.DarkYellow;
 
@@ -129,6 +134,93 @@ while (true)
 void DemarrerNouvellePartie()
 {
     Console.WriteLine("C'est partie !");
+
+    #region Etape 1
+    DetectionAgeJoueur();
+    #endregion
+
+    #region Etape 2
+    AfficherRaces();
+    var race = RecupererRaceChoisie();
+    #endregion
+
+    #region Etape 3
+    string nickName = RecupererNickName();
+    #endregion
+}
+
+string? RecupererNickName()
+{
+    Console.WriteLine("Tu choisis quoi comme nom de joueur ?");
+    return Console.ReadLine();
+}
+
+Race RecupererRaceChoisie()
+{
+    Race race = Race.Elfe;
+
+    Console.WriteLine("Tu choisis quoi comme race ?");
+    string? raceSaisie = Console.ReadLine();
+
+    if (!string.IsNullOrEmpty(raceSaisie)) // type guard
+    {
+        int raceId = int.Parse(raceSaisie);
+        race = (Race)raceId;
+    }
+
+    return race;
+}
+
+void AfficherRaces()
+{
+    // Enum.GetNames(typeof(Race));
+    var list = Enum.GetNames<Race>();
+
+    foreach (var raceString in list)
+    {
+        if (Enum.TryParse<Race>(raceString, out Race race))
+        {
+            Console.WriteLine("{0} - {1}", (int)race, raceString);
+        }
+
+    }
+}
+
+void DetectionAgeJoueur()
+{
+    bool ageValide = false;
+
+    Console.WriteLine("Ta date de naissance, steuplai ?");
+    var dateSaisieString = Console.ReadLine();
+
+    if (dateSaisieString == null)
+    {
+        System.Environment.Exit(-1);
+    }
+
+    if (DateTime.TryParse(dateSaisieString, out DateTime dateValide))
+    {
+        TimeSpan duree = DateTime.Now - dateValide;
+        // uint.MaxValue
+        int nbYears = duree.Days / 365;
+
+        //Console.WriteLine("Tu es né le {0}, tu as donc {1}", dateValide.ToString("dddd dd MMMM yyyy"), nbYears.ToString("#00"));
+        Console.WriteLine($"Tu es né le {dateValide.ToString("dddd dd MMMM yyyy", new CultureInfo("fr-FR"))}, tu as donc {nbYears.ToString("#00")}");
+
+        ageValide = true;
+        if (nbYears < 13)
+        {
+            ageValide = false;
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("Oulla lal c'est pas bien, tu n'as pas le droit de joueur");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+    }
+
+    if (!ageValide)
+    {
+        System.Environment.Exit(-1);
+    }
 }
 
 void ChargerPartie()
