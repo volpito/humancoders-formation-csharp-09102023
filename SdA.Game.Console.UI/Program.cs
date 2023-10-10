@@ -1,4 +1,5 @@
-﻿using SdA.Game.Libs.Models.UI;
+﻿using SdA.Game.Libs.Models.GamePlay;
+using SdA.Game.Libs.Models.UI;
 using System.Globalization;
 
 Console.WriteLine("{0}", System.Threading.Thread.CurrentThread.CurrentCulture.Name);
@@ -134,6 +135,16 @@ while (true)
 void DemarrerNouvellePartie()
 {
     Console.WriteLine("C'est partie !");
+
+    var player = new Player();
+
+    Console.WriteLine(player.Age);
+    // player.Age = 0;
+    //player.NickName = "Gandalf le blanc";
+    //Player player2 = player;
+    //player2.NickName = "Gandalf le gris";
+
+    //Console.WriteLine($"Nom du player {player.NickName}");
 
     #region Etape 1
     DetectionAgeJoueur();
