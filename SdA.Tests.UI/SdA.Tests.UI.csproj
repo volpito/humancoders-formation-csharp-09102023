@@ -12,8 +12,4 @@
     <ProjectReference Include="..\SdA.Game.Libs.Models.UI\SdA.Game.Libs.Models.UI.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Using Include="System.Text" />
-  </ItemGroup>
-
 </Project>

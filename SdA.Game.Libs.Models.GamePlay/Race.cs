@@ -1,9 +1,9 @@
-﻿namespace SdA.Game.Consoles.UI;
+﻿namespace SdA.Game.Libs.Models.GamePlay;
 
 /// <summary>
 /// Race pour choisir le type du joueur
 /// </summary>
-internal enum Race
+public enum Race
 {
     Humain,
     Nain,

@@ -1,4 +1,5 @@
-﻿using SdA.Game.Consoles.UI;
+﻿using SdA.Game.Libs.Models.GamePlay;
+using SdA.Game.Libs.Models.UI;
 using System.Globalization;
 
 Console.WriteLine("{0}", System.Threading.Thread.CurrentThread.CurrentCulture.Name);
@@ -100,7 +101,7 @@ while (true)
     {
         Console.WriteLine(choice);
 
-        ChoixMenu choixMenu = (ChoixMenu)choice;
+        SdA.Game.Libs.Models.UI.ChoixMenu choixMenu = (SdA.Game.Libs.Models.UI.ChoixMenu)choice;
 
         switch (choixMenu)
         {
@@ -135,8 +136,15 @@ void DemarrerNouvellePartie()
 {
     Console.WriteLine("C'est partie !");
 
+    // player.Age = 0;
+    //player.NickName = "Gandalf le blanc";
+    //Player player2 = player;
+    //player2.NickName = "Gandalf le gris";
+
+    //Console.WriteLine($"Nom du player {player.NickName}");
+
     #region Etape 1
-    DetectionAgeJoueur();
+    var player = DetectionAgeJoueur();
     #endregion
 
     #region Etape 2
@@ -145,7 +153,14 @@ void DemarrerNouvellePartie()
     #endregion
 
     #region Etape 3
-    string nickName = RecupererNickName();
+    player.NickName = RecupererNickName();
+    #endregion
+
+    #region Etape 4
+    var sessionBuilder = new SessionGameBuilder(player);
+    var session = sessionBuilder.Build();
+
+    session.Start();
     #endregion
 }
 
@@ -186,8 +201,10 @@ void AfficherRaces()
     }
 }
 
-void DetectionAgeJoueur()
+Player? DetectionAgeJoueur()
 {
+    Player? player = null;
+
     bool ageValide = false;
 
     Console.WriteLine("Ta date de naissance, steuplai ?");
@@ -215,12 +232,16 @@ void DetectionAgeJoueur()
             Console.WriteLine("Oulla lal c'est pas bien, tu n'as pas le droit de joueur");
             Console.ForegroundColor = ConsoleColor.White;
         }
+
+        player = new Player(dateValide);
     }
 
     if (!ageValide)
     {
         System.Environment.Exit(-1);
     }
+
+    return player;
 }
 
 void ChargerPartie()
