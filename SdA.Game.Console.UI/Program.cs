@@ -136,9 +136,6 @@ void DemarrerNouvellePartie()
 {
     Console.WriteLine("C'est partie !");
 
-    var player = new Player();
-
-    Console.WriteLine(player.Age);
     // player.Age = 0;
     //player.NickName = "Gandalf le blanc";
     //Player player2 = player;
@@ -147,7 +144,7 @@ void DemarrerNouvellePartie()
     //Console.WriteLine($"Nom du player {player.NickName}");
 
     #region Etape 1
-    DetectionAgeJoueur();
+    var player = DetectionAgeJoueur();
     #endregion
 
     #region Etape 2
@@ -156,7 +153,7 @@ void DemarrerNouvellePartie()
     #endregion
 
     #region Etape 3
-    string nickName = RecupererNickName();
+    player.NickName = RecupererNickName();
     #endregion
 }
 
@@ -197,8 +194,10 @@ void AfficherRaces()
     }
 }
 
-void DetectionAgeJoueur()
+Player? DetectionAgeJoueur()
 {
+    Player? player = null;
+
     bool ageValide = false;
 
     Console.WriteLine("Ta date de naissance, steuplai ?");
@@ -226,12 +225,16 @@ void DetectionAgeJoueur()
             Console.WriteLine("Oulla lal c'est pas bien, tu n'as pas le droit de joueur");
             Console.ForegroundColor = ConsoleColor.White;
         }
+
+        player = new Player(dateValide);
     }
 
     if (!ageValide)
     {
         System.Environment.Exit(-1);
     }
+
+    return player;
 }
 
 void ChargerPartie()

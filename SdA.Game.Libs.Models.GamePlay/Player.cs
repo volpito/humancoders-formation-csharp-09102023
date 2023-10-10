@@ -12,21 +12,25 @@ public class Player
     #endregion
 
     #region Constructors
-    public Player()
+    public Player(DateTime date) : this(string.Empty, date)
     {
+        this.Initialiser(date);
+    }
 
+    public Player(string nickName, DateTime date)
+    {
+        this.NickName = nickName;
     }
     #endregion
 
     #region Public methods
-    public void Initialisation(DateTime dateNaissance)
-    {
-        this.DateDeNaissance = dateNaissance;
-    }
     #endregion
 
     #region Internal methods
-
+    private void Initialiser(DateTime dateNaissance)
+    {
+        this.DateDeNaissance = dateNaissance;
+    }
     #endregion
 
     #region Properties
