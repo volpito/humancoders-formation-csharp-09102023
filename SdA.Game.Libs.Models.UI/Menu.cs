@@ -1,4 +1,4 @@
-﻿namespace SdA.Game.Consoles.UI;
+﻿namespace SdA.Game.Libs.Models.UI;
 
 /// <summary>
 /// Menu principal du jeu

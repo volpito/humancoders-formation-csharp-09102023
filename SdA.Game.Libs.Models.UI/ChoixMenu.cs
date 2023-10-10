@@ -1,9 +1,9 @@
-﻿namespace SdA.Game.Consoles.UI;
+﻿namespace SdA.Game.Libs.Models.UI;
 
 /// <summary>
 /// Enum listant les choix d'un menu
 /// </summary>
-internal enum ChoixMenu
+public enum ChoixMenu
 {
     None = -1,
     NouvellePartie = 0,

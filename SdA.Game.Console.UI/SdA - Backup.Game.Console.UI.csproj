@@ -7,12 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\SdA.Game.Libs.Models\SdA.Game.Libs.Models.GamePlay.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Using Include="System.Text" />
-  </ItemGroup>
-
 </Project>

@@ -1,4 +1,4 @@
-﻿using SdA.Game.Consoles.UI;
+﻿using SdA.Game.Libs.Models.UI;
 using System.Globalization;
 
 Console.WriteLine("{0}", System.Threading.Thread.CurrentThread.CurrentCulture.Name);
@@ -100,7 +100,7 @@ while (true)
     {
         Console.WriteLine(choice);
 
-        ChoixMenu choixMenu = (ChoixMenu)choice;
+        SdA.Game.Libs.Models.UI.ChoixMenu choixMenu = (SdA.Game.Libs.Models.UI.ChoixMenu)choice;
 
         switch (choixMenu)
         {
