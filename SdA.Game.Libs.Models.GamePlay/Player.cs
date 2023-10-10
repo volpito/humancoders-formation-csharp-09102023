@@ -9,6 +9,8 @@ public class Player
 
     private string nickName = string.Empty;
     private DateTime dateDeNaissance = DateTime.MinValue;
+
+    private List<SessionGame> gameSessions = new();
     #endregion
 
     #region Constructors
@@ -34,6 +36,8 @@ public class Player
     #endregion
 
     #region Properties
+    public List<SessionGame> Sessions => this.gameSessions;
+
     public string NickName
     {
         get { return this.nickName; }

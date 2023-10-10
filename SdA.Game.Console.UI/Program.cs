@@ -155,6 +155,13 @@ void DemarrerNouvellePartie()
     #region Etape 3
     player.NickName = RecupererNickName();
     #endregion
+
+    #region Etape 4
+    var sessionBuilder = new SessionGameBuilder(player);
+    var session = sessionBuilder.Build();
+
+    session.Start();
+    #endregion
 }
 
 string? RecupererNickName()

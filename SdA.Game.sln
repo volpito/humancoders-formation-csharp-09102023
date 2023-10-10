@@ -5,9 +5,9 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SdA.Game.Console.UI", "SdA.Game.Console.UI\SdA.Game.Console.UI.csproj", "{AAD1D860-1EFE-4DA1-845F-6AE63B52EF30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SdA.Game.Libs.Models.UI", "SdA.Game.Libs.Models.UI\SdA.Game.Libs.Models.UI.csproj", "{21B0321F-8115-49A5-9DA3-62315E713C01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SdA.Game.Libs.Models.UI", "SdA.Game.Libs.Models.UI\SdA.Game.Libs.Models.UI.csproj", "{21B0321F-8115-49A5-9DA3-62315E713C01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SdA.Game.Libs.Models.GamePlay", "SdA.Game.Libs.Models.GamePlay\SdA.Game.Libs.Models.GamePlay.csproj", "{9AA4816C-5702-4932-8E9B-0D81CB94043A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SdA.Game.Libs.Models.GamePlay", "SdA.Game.Libs.Models.GamePlay\SdA.Game.Libs.Models.GamePlay.csproj", "{9AA4816C-5702-4932-8E9B-0D81CB94043A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{0489584E-33F7-4917-9420-3CCC63CBEF79}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gameplay", "Gameplay", "{563E9FEA-E43B-4D22-A048-7AE88CA92BAC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{27C78882-2E06-4F36-B1A4-FDB17FFE3A3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SdA.Tests.UI", "SdA.Tests.UI\SdA.Tests.UI.csproj", "{BFFB3C7E-E0CB-4420-8D3A-04294B50E59D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{9AA4816C-5702-4932-8E9B-0D81CB94043A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AA4816C-5702-4932-8E9B-0D81CB94043A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AA4816C-5702-4932-8E9B-0D81CB94043A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFFB3C7E-E0CB-4420-8D3A-04294B50E59D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFFB3C7E-E0CB-4420-8D3A-04294B50E59D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFFB3C7E-E0CB-4420-8D3A-04294B50E59D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFFB3C7E-E0CB-4420-8D3A-04294B50E59D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +51,7 @@ Global
 		{9AA4816C-5702-4932-8E9B-0D81CB94043A} = {563E9FEA-E43B-4D22-A048-7AE88CA92BAC}
 		{25806458-5A50-4A8D-975E-E8F66B7E9035} = {0489584E-33F7-4917-9420-3CCC63CBEF79}
 		{563E9FEA-E43B-4D22-A048-7AE88CA92BAC} = {0489584E-33F7-4917-9420-3CCC63CBEF79}
+		{BFFB3C7E-E0CB-4420-8D3A-04294B50E59D} = {27C78882-2E06-4F36-B1A4-FDB17FFE3A3C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {293A461D-C53F-4F14-A8CC-B6DED43635BF}
