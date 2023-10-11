@@ -1,4 +1,6 @@
-﻿namespace SdA.Game.Libs.Models.GamePlay
+﻿using SdA.Game.Libs.Models.GamePlay.Characters;
+
+namespace SdA.Game.Libs.Models.GamePlay
 {
     /// <summary>
     /// Session de jeu d'un player
